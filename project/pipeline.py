@@ -1,6 +1,5 @@
 import sys
 import subprocess
-import os
 import argparse
 from scripts.detection_model import run_detection_model
 from scripts.ocr_model import run_ocr_model
@@ -31,6 +30,6 @@ if __name__ == "__main__":
         run_script(script)
 
     run_detection_model(mode=args.Dmode)
-    # run_ocr_model(mode=args.OCRmode)
+    run_ocr_model(mode=args.OCRmode)
 
     print("\n✅ Pipeline execution complete.")
