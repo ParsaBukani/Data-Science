@@ -1,5 +1,5 @@
-from load_data import load_annotations
-from database_connection import get_connection
+from .load_data import load_annotations
+from .database_connection import get_connection
 import os
 import mlflow
 
@@ -79,7 +79,7 @@ def feature_engineering_pipeline(row_limit=None):
         mlflow.log_metric("raw_rows", len(df))
 
         print("🔧 Creating detection features...")
-        detection_df = create_detection_image_features(df)
+        detection_df = create_detection_image_features(df.copy())
         save_detection_features_to_db(detection_df)
         detection_path = os.path.join('content', 'detection_features.csv')
         save_to_csv(detection_df, detection_path)
@@ -88,7 +88,7 @@ def feature_engineering_pipeline(row_limit=None):
         mlflow.log_artifact(detection_path)
 
         print("🔧 Creating advanced plate features...")
-        plate_df = create_plates_advanced_features(df)
+        plate_df = create_plates_advanced_features(df.copy())
         save_plates_features_to_db(plate_df)
         plate_path = os.path.join('content', 'engineered_plate_features.csv')
         save_to_csv(plate_df, plate_path)

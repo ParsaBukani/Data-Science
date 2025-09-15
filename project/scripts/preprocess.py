@@ -1,12 +1,11 @@
-import pandas as pd
 import os
 import cv2
 import mlflow
-import mlflow.pytorch
-from sklearn.preprocessing import MinMaxScaler
-from database_connection import get_connection, get_cursor
-from load_data import load_detection_images_joined_data, load_plates_joined_data
+import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
+from .database_connection import get_connection, get_cursor
+from .load_data import load_detection_images_joined_data, load_plates_joined_data
 
 IMAGE_SIZE = 224
 
@@ -41,7 +40,8 @@ def preprocess_detection_images(output_folder, row_limit=None):
 
         cv2.imwrite(save_path, resized)
 
-        df.at[idx, 'image_path'] = save_path
+        df.loc[df['filename'] == filename, 'image_path'] = save_path
+
         processed += 1
 
     print(f"✅ Detection images processed: {processed}, skipped: {skipped}")
@@ -78,8 +78,6 @@ def preprocess_plate_images(output_folder, resize_method='mean', row_limit=None)
     if resize_method == 'mean':
         mean_w = int(df['bbox_width'].mean())
         mean_h = int(df['bbox_height'].mean())
-        print(df['bbox_height'])
-        print(df['bbox_width'])
         target_size = (mean_w, mean_h)
         print(f"picture target size is:({mean_w},{mean_h}) ")
     processed, skipped = 0, 0
@@ -251,6 +249,7 @@ if __name__ == "__main__":
 
         plate_df = preprocess_plate_images(plate_output_dir, resize_method=resize_method)
         mlflow.log_metric("plates_processed", len(plate_df))
+        
 
         detection_df = preprocess_detection_images(detection_output_dir)
         mlflow.log_metric("detections_processed", len(detection_df))

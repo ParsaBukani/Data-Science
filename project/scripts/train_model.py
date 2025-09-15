@@ -2,36 +2,18 @@ import os
 import mlflow
 import mlflow.pytorch
 import torch
-from load_data import load_detection_image_features
-from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 import torchvision
-from tools import NumberPlateDataset, evaluate_model, train_one_epoch
+from .tools import NumberPlateDataset, evaluate_model, train_one_epoch
 
 
 
-def train_model(df, oTest = False):
+def train_model(df_train, df_val):
     num_epochs = 10
     batch_size_train = 4
     batch_size_val = 2
     learning_rate = 0.005
-
-    print("📊 Splitting dataset into train/val/test...")
-    unique_filenames = df['filename'].unique()
-
-    train_files, temp_files = train_test_split(unique_filenames, test_size=0.3, random_state=42)
-    val_files, test_files = train_test_split(temp_files, test_size=0.5, random_state=42)
-
-    df_train = df[df['filename'].isin(train_files)].reset_index(drop=True)
-    df_val = df[df['filename'].isin(val_files)].reset_index(drop=True)
-    df_test = df[df['filename'].isin(test_files)].reset_index(drop=True)
-    
-    if oTest:
-        return None, df_test
-
-    print(f"✅ Dataset sizes — Train: {len(df_train)}, Val: {len(df_val)}, Test: {len(df_test)}")
-
 
     train_dataset = NumberPlateDataset(df_train)
     val_dataset = NumberPlateDataset(df_val)
@@ -88,17 +70,12 @@ def train_model(df, oTest = False):
         mlflow.pytorch.log_model(model, "fasterrcnn_model")
 
     print("✅ Training complete.")
-    return model, df_test
+    return model
 
-def train_detection_model(oTest=False):
-    print("📥 Loading features from database...")
-    df = load_detection_image_features(mode='train')
-
+def train_detection_model(df_train, df_val):
+    
     print("🏁 Starting training pipeline...")
-    model, df_test = train_model(df, oTest=oTest)
-
-    if oTest:
-        return df_test
+    model = train_model(df_train, df_val)
 
     save_dir = os.path.join('..', 'models')
     os.makedirs(save_dir, exist_ok=True)
@@ -109,4 +86,3 @@ def train_detection_model(oTest=False):
 
     mlflow.log_artifact(model_path)
 
-    return df_test

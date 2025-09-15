@@ -4,6 +4,17 @@ from tqdm import tqdm
 from torch.utils.data import Dataset
 from PIL import Image
 import torchvision.transforms as T
+import joblib
+import os
+from .load_data import load_plate_features
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+# from xgboost import XGBClassifier
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+
+
 
 class NumberPlateDataset(Dataset):
     def __init__(self, df, transform=None):
@@ -100,7 +111,11 @@ def train_one_epoch(model, data_loader, optimizer, device, epoch, print_freq=50)
 
     for i, (images, targets) in enumerate(tqdm(data_loader, desc=f"Epoch {epoch}")):
         images = [img.to(device) for img in images]
-        targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
+        targets = [
+            {k: (v.to(device) if isinstance(v, torch.Tensor) else v) for k, v in t.items()}
+            for t in targets
+        ]
+        
         for img in images:
             print(img.shape)  # (C, H, W)
             break
@@ -159,3 +174,55 @@ def evaluate_model(model, data_loader, device, iou_threshold=0.5):
     print(f"Detection Rate @ IoU > {iou_threshold}: {detection_rate * 100:.2f}%")
 
     return avg_iou, detection_rate
+
+def worth_ocr_model(train_mode=True):
+
+    model_dir = "models"
+    os.makedirs(model_dir, exist_ok=True)
+
+    df1 = load_plate_features()
+    df = df1.dropna(subset=['worth_ocr'])
+    features = ['blur_score', 'bbox_width', 'bbox_height', 'aspect_ratio', 'area_fraction']
+    X = df[features]
+    y = df['worth_ocr']
+
+    model_defs = {
+        'random_forest': RandomForestClassifier(),
+        'log_reg': LogisticRegression(max_iter=1000),
+        'svm': SVC(probability=True),
+        'xgboost': XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+    }
+
+    if train_mode:
+        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+        for name, model in model_defs.items():
+            print(f"\n🧠 Training: {name}")
+            model.fit(X_train, y_train)
+            preds = model.predict(X_test)
+            print(f"📊 {name} performance:")
+            print(classification_report(y_test, preds))
+            joblib.dump(model, os.path.join(model_dir, f"{name}.pkl"))
+
+        print("✅ All models trained and saved.\n")
+
+    else:
+        df_preds = df[['preprocessed_plate']].copy()
+
+        for model_name in model_defs.keys():
+            model_path = os.path.join(model_dir, f"{model_name}.pkl")
+            if not os.path.exists(model_path):
+                print(f"❌ Skipping {model_name}: model not found.")
+                continue
+
+            print(f"📥 Loading {model_name} model...")
+            model = joblib.load(model_path)
+            preds = model.predict(X)
+            df_preds[f'{model_name}_prediction'] = preds
+
+            if hasattr(model, 'predict_proba'):
+                confs = model.predict_proba(X)[:, 1]
+                df_preds[f'{model_name}_conf'] = confs
+
+        df_preds.to_csv("predicted_worth_ocr_all_models.csv", index=False)
+        print("✅ All predictions saved to predicted_worth_ocr_all_models.csv")

@@ -5,10 +5,8 @@ import mlflow.pytorch
 from torch.utils.data import DataLoader
 from torchvision.models.detection import fasterrcnn_resnet50_fpn_v2
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-from load_data import load_detection_image_features
-from database_connection import get_connection
-from sklearn.model_selection import train_test_split
-from tools import evaluate_model, NumberPlateDataset
+from .database_connection import get_connection
+from .tools import evaluate_model, NumberPlateDataset
 
 
 
@@ -86,7 +84,6 @@ def evaluation_on_test_set(df_test):
         mlflow.pytorch.log_model(model, "model")
 
         print(f"✅ Logged to MLflow: IoU = {avg_iou:.4f}, Detection Rate = {detection_rate:.4f}")
-
 
 
 # if __name__ == "__main__":

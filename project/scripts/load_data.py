@@ -1,5 +1,5 @@
 import pandas as pd
-from database_connection import get_connection
+from .database_connection import get_connection
 
 def load_annotations(row_limit=None):
     conn = get_connection()
@@ -88,3 +88,16 @@ def load_detection_images_joined_data(row_limit=None):
     df = pd.read_sql_query(query, conn)
     conn.close()
     return df
+
+
+def get_datasets(mode = 'detection'):
+
+    conn = get_connection()
+
+    df_train = pd.read_sql(f"SELECT * FROM train_data_{mode}", conn)
+    df_val = pd.read_sql(f"SELECT * FROM val_data_{mode}", conn)
+    df_test = pd.read_sql(f"SELECT * FROM test_data_{mode}", conn)
+
+    conn.close()
+
+    return df_train, df_val, df_test

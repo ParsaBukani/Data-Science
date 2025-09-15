@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import os
+from .database_connection import get_connection
 
 excel_path = os.path.join('content', 'car_plate_annotations.xlsx')
 db_path = os.path.join('database', 'dataset.db')
@@ -37,3 +38,13 @@ conn.commit()
 conn.close()
 
 print("✅ Database created and annotation table inserted successfully!")
+
+
+
+def save_datasets(df_train, df_val, df_test, mode='detection'):
+    conn = get_connection()
+    df_train.to_sql(f"train_data_{mode}", conn, if_exists='replace', index=False)
+    df_val.to_sql(f"val_data_{mode}", conn, if_exists='replace', index=False)
+    df_test.to_sql(f"test_data_{mode}", conn, if_exists='replace', index=False)
+    conn.close()
+    
