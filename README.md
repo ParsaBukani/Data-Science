@@ -29,8 +29,8 @@ This course provides a comprehensive journey through the **data science pipeline
 |       | Drug Safety Trial  | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/Drug%20Safety%20Trial) |
 | **CA1 - Sampling & Data Visualization** | Langevin Dynamics Sampling | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Sampling%20%26%20Data%20Visualization/Langevin%20Dynamics%20Sampling) |
 |       | Interactive Dashboards (Tableau) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Sampling%20%26%20Data%20Visualization/Airbnb%20Data%20Storytelling%20with%20Tableau) |
-| **CA2** | Real-Time Data Pipeline — Fraud Detection | [View](./CA2) |
-| **CA3** | Cancer Survival Classification | [View](./CA3/Cancer%20Survival%20Classification) |
+| **CA2 - Real-Time Data Pipeline** | Real-Time Data Pipeline — Fraud Detection | [View](./CA2) |
+| **CA3** | Cancer Survival Classification | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Real-Time%20Data%20Pipeline) |
 |       | Bike Rental Regression | [View](./CA3/Bike%20Rental%20Regression) |
 |       | Movie Recommendation | [View](./CA3/Movie%20Recommendation) |
 | **CA4** | Football Match Prediction (MLP) | [View](./CA4/Football%20Match%20Prediction) |
