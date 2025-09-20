@@ -30,9 +30,9 @@ This course provides a comprehensive journey through the **data science pipeline
 | **CA1 - Sampling & Data Visualization** | Langevin Dynamics Sampling | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Sampling%20%26%20Data%20Visualization/Langevin%20Dynamics%20Sampling) |
 |       | Interactive Dashboards (Tableau) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Sampling%20%26%20Data%20Visualization/Airbnb%20Data%20Storytelling%20with%20Tableau) |
 | **CA2 - Real-Time Data Pipeline** | Transaction Monitoring System | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Real-Time%20Data%20Pipeline) |
-| **CA3** | Cancer Survival Classification | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Real-Time%20Data%20Pipeline) |
-|       | Bike Rental Regression | [View](./CA3/Bike%20Rental%20Regression) |
-|       | Movie Recommendation | [View](./CA3/Movie%20Recommendation) |
+| **CA3** | Cancer Survival Classification | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Machine%20Learning/Cancer%20Survival%20Classification) |
+|       | Bike Rental Regression | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Machine%20Learning/Bike%20Rental%20Regression) |
+|       | Movie Recommendation | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Machine%20Learning/Movie%20Recommendation%20System) |
 | **CA4** | Football Match Prediction (MLP) | [View](./CA4/Football%20Match%20Prediction) |
 |       | Flower Classification (CNN & Transfer Learning) | [View](./CA4/Flower%20Classification) |
 |       | Bitcoin Price Forecasting (RNN/LSTM) | [View](./CA4/Bitcoin%20Price%20Prediction) |
