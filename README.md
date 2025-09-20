@@ -1,4 +1,7 @@
-﻿
+<p align="center">
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/1dddcb8b-530c-40fc-9675-69f311a1ed4e" />
+</p>
+
 # Introduction to Data Science
 
 This repository contains a series of projects developed for the course  
