@@ -44,9 +44,9 @@ Using the **2016 Trump vs. Clinton polling dataset**, we estimate voter support,
 
    a) Compute the 95% CI for $d$:  
 
-   $
+   $$
    \hat{d} \pm 1.96 \times 2\,\text{SE}(\hat{p})
-   $
+   $$
 
    b) Perform a hypothesis test: $H_0: d=0$ vs. $H_a: d \neq 0$.  
    - Report the test statistic and p-value.  
