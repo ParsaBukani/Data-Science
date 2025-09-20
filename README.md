@@ -40,7 +40,7 @@ This course provides a comprehensive journey through the **data science pipeline
 |       | Semantic Search — Persian Q&A | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/Semantic%20Search%20on%20NiniSite) |
 |       | LLM Reasoning — SWAG Dataset | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/LLM%20for%20Multiple-Choice%20Reasoning) |
 |       | Image Segmentation via Clustering | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/Image%20Segmentation%20Using%20Clustering) |
-| **Final Project** | Car License Plate Detection *(in a separate repository)* | [View](./Car%20License%20Plate%20Detection) |
+| **Final Project** | Car License Plate Detection *(in a separate repository)* | [View](https://github.com/manih1384/Car-License-Plate-Detection) |
 
 
 
