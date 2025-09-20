@@ -34,12 +34,12 @@ This course provides a comprehensive journey through the **data science pipeline
 |       | Bike Rental Regression | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Machine%20Learning/Bike%20Rental%20Regression) |
 |       | Movie Recommendation | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Machine%20Learning/Movie%20Recommendation%20System) |
 | **CA4 - Applied Deep Learning** | Football Match Prediction (MLP) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Applied%20Deep%20Learning/Football%20Match%20Outcome%20Prediction) |
-|       | Flower Classification (CNN & Transfer Learning) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Applied%20Deep%20Learning/Flower%20Classification%20with%20CNNs) |
-|       | Bitcoin Price Forecasting (RNN/LSTM) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Applied%20Deep%20Learning/Bitcoin%20Price%20Forecasting%20with%20RNNs) |
-| **CA5 & CA6** | Semi-Supervised Learning — Game Reviews | [View](./CA5-6/Game%20Review%20Prediction) |
-|       | Semantic Search — Persian Q&A | [View](./CA5-6/Semantic%20Search) |
-|       | LLM Reasoning — SWAG Dataset | [View](./CA5-6/LLM%20Reasoning) |
-|       | Image Segmentation via Clustering | [View](./CA5-6/Image%20Segmentation) |
+|       | Flower Classification (CNN) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Applied%20Deep%20Learning/Flower%20Classification%20with%20CNNs) |
+|       | Bitcoin Price Forecasting (RNN) | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Applied%20Deep%20Learning/Bitcoin%20Price%20Forecasting%20with%20RNNs) |
+| **CA5 & CA6 - Advanced Topics in AI** | Semi-Supervised Learning — Game Reviews | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/Video%20Game%20Review%20Score%20Prediction) |
+|       | Semantic Search — Persian Q&A | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/Semantic%20Search%20on%20NiniSite) |
+|       | LLM Reasoning — SWAG Dataset | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/LLM%20for%20Multiple-Choice%20Reasoning) |
+|       | Image Segmentation via Clustering | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Advanced%20Topics%20in%20Artificial%20Intelligence/Image%20Segmentation%20Using%20Clustering) |
 | **Final Project** | Car License Plate Detection *(managed in a separate repository)* | [View](./Car%20License%20Plate%20Detection) |
 
 
