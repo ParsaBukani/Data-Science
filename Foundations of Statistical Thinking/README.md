@@ -17,8 +17,6 @@ The assignments combine simulation, real-world data analysis, and statistical va
 - **Drug Safety Test**  
   Clinical trial data is analyzed to compare **drug vs. placebo** groups across multiple health metrics, using independent **t-tests** for statistical validation.
 
----
-
 ## Acknowledgements
 
 Developed under the supervision of:  
