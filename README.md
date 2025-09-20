@@ -24,9 +24,9 @@ This course provides a comprehensive journey through the **data science pipeline
 
 | CA | Task Title | Link |
 |----|---------------|------|
-| **CA0** | Roulette Simulation & Profit Analysis | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/Roulette%20Simulation%20%26%20Profit%20Analysis) |
+| **CA0 - Foundations of Statistical Thinking** | Roulette Simulation & Profit Analysis | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/Roulette%20Simulation%20%26%20Profit%20Analysis) |
 |       | 2016 U.S. Election — Poll Aggregation | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/2016%20US%20Election%20Prediction) |
-|       | Drug Safety Testing | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/Drug%20Safety%20Trial) |
+|       | Drug Safety Trial  | [View](https://github.com/erfan-f/DataScience-Course/tree/main/Foundations%20of%20Statistical%20Thinking/Drug%20Safety%20Trial) |
 | **CA1** | Langevin Dynamics Sampling | [View](./CA1/Langevin%20Dynamics) |
 |       | Interactive Dashboards (Tableau) | [View](./CA1/Interactive%20Dashboards) |
 | **CA2** | Real-Time Data Pipeline — Fraud Detection | [View](./CA2) |
